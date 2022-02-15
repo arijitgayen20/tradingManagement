@@ -11,6 +11,7 @@
 		13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
+		2350759A628243048914F9E0 /* Stolzl-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B7EBB3C815EB4BF1B47B73A0 /* Stolzl-Regular.ttf */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		977AD5F3AE2F23774F079225 /* libPods-TradingManagement-TradingManagementTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D344A82789462CB5DF1C709 /* libPods-TradingManagement-TradingManagementTests.a */; };
 		F8C0C295136E8A927930B14D /* libPods-TradingManagement.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A979216C4EF2D2495B1C3E9 /* libPods-TradingManagement.a */; };
@@ -43,6 +44,7 @@
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = TradingManagement/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8A979216C4EF2D2495B1C3E9 /* libPods-TradingManagement.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TradingManagement.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D344A82789462CB5DF1C709 /* libPods-TradingManagement-TradingManagementTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TradingManagement-TradingManagementTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B7EBB3C815EB4BF1B47B73A0 /* Stolzl-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Stolzl-Regular.ttf"; path = "../src/assets/fonts/Stolzl-Regular.ttf"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -106,6 +108,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		537E9E9347BF40D5AF3A761C /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				B7EBB3C815EB4BF1B47B73A0 /* Stolzl-Regular.ttf */,
+			);
+			name = Resources;
+			path = "";
+			sourceTree = "<group>";
+		};
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
@@ -122,6 +133,7 @@
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				E36BDB6A1877EED7E169AE1D /* Pods */,
+				537E9E9347BF40D5AF3A761C /* Resources */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -245,6 +257,7 @@
 			files = (
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				2350759A628243048914F9E0 /* Stolzl-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

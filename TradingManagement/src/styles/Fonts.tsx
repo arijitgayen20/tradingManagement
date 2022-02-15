@@ -1,1 +1,1 @@
-export const regular = '';
+export const Regular = 'Stolzl-Regular';
