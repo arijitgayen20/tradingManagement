@@ -1,5 +1,6 @@
 import {Pressable, StyleSheet, Text} from 'react-native';
 import React, {FC} from 'react';
+import {Fonts} from '../styles';
 interface ButtonComponentProps {
   backgroundColor: string;
   textColor: string;
@@ -27,10 +28,12 @@ const styles = StyleSheet.create({
   buttonContainer: {
     width: '100%',
     height: '100%',
+    borderRadius: 10,
     justifyContent: 'center',
     alignItems: 'center',
   },
   textStyle: {
     fontSize: 18,
+    fontFamily: Fonts.Regular,
   },
 });

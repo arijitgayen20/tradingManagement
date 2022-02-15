@@ -1,18 +1,23 @@
 import React, {useRef, useState} from 'react';
 import {
   Animated,
-  Image,
+  KeyboardTypeOptions,
   LayoutChangeEvent,
   StyleSheet,
   TextInput,
   View,
 } from 'react-native';
-import {Colors} from '../styles';
+import {Colors, Fonts} from '../styles';
 type AnimatedInputProps = {
   value: string;
   onChange: (value: string) => void;
   placeholder: string;
   multiline: boolean;
+  showIcon: boolean;
+  textColor: string;
+  icon?: Element;
+  keyType: KeyboardTypeOptions;
+  secureTextEntry?: boolean;
 };
 
 const AnimatedInput: React.FC<AnimatedInputProps> = ({
@@ -20,6 +25,11 @@ const AnimatedInput: React.FC<AnimatedInputProps> = ({
   onChange,
   placeholder,
   multiline,
+  showIcon,
+  textColor,
+  icon,
+  keyType,
+  secureTextEntry,
 }) => {
   const [inputHeight, setHeight] = useState<null | number>(null);
   const [placeholderWidth, setWidth] = useState<null | number>(null);
@@ -34,9 +44,9 @@ const AnimatedInput: React.FC<AnimatedInputProps> = ({
   });
   const scale = animation.interpolate({
     inputRange: [0, 1],
-    outputRange: [1, 0.5],
+    outputRange: [0.9, 0.6],
   });
-  const onFocus = () => animate(1);
+  const onFocus = () => animate(1.4);
   const onBlur = () => !value && animate(0);
 
   const animate = (val: number) => {
@@ -60,6 +70,7 @@ const AnimatedInput: React.FC<AnimatedInputProps> = ({
         <Animated.Text
           style={[
             styles.placeholder,
+            {color: textColor},
             {transform: [{translateY}, {translateX}, {scale}]},
           ]}
           onTextLayout={e =>
@@ -71,49 +82,45 @@ const AnimatedInput: React.FC<AnimatedInputProps> = ({
       <TextInput
         style={[
           styles.input,
+          {width: showIcon ? '80%' : '95%'},
           multiline && {height: 100, textAlignVertical: 'top'},
         ]}
         onFocus={onFocus}
+        keyboardType={keyType}
         onBlur={onBlur}
         onChangeText={onChange}
         multiline={multiline}
+        secureTextEntry={secureTextEntry}
       />
-      <Image
-        style={{width: 30, height: 30}}
-        source={{
-          uri: 'https://as1.ftcdn.net/v2/jpg/01/09/40/34/1000_F_109403453_AGyw0S3VS2WfDoPTKvPLv8BgQqp93ct4.jpg',
-        }}
-      />
+      {showIcon && icon}
     </View>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
-    borderWidth: 1,
+    borderWidth: 2,
     borderRadius: 5,
-    borderColor: Colors.GrayColor,
+    borderColor: '#9DE5FF',
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'space-between',
+    justifyContent: 'space-around',
   },
   placeholderContainer: {
     position: 'absolute',
-    backgroundColor: Colors.ErrorColor,
     justifyContent: 'center',
   },
   placeholder: {
     fontSize: 22,
     position: 'absolute',
-    marginHorizontal: 5,
-    paddingHorizontal: 5,
-    backgroundColor: Colors.WhiteColor,
-    color: '#999',
+    color: Colors.WhiteColor,
   },
   input: {
     width: '80%',
     paddingHorizontal: 10,
     fontSize: 18,
+    color: Colors.WhiteColor,
+    fontFamily: Fonts.Regular,
     height: 60,
   },
 });

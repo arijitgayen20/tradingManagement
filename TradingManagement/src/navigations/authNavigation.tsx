@@ -14,7 +14,9 @@ const AuthStack = createNativeStackNavigator<AuthStackParamList>();
 
 const AuthNavigation: React.FC = () => {
   return (
-    <AuthStack.Navigator initialRouteName={Routes.LoginScreen}>
+    <AuthStack.Navigator
+      initialRouteName={Routes.LoginScreen}
+      screenOptions={{headerShown: false}}>
       <AuthStack.Screen
         name={Routes.LoginScreen}
         component={Screens.LoginScreen}
@@ -28,7 +30,6 @@ const AuthNavigation: React.FC = () => {
       <AuthStack.Screen
         name={Routes.ResetPassword}
         component={Screens.ResetPassword}
-        options={{title: ''}}
       />
       <AuthStack.Screen
         name={Routes.SuccessScreen}
