@@ -74,7 +74,7 @@ export const styles = StyleSheet.create({
   },
   buttonView: {
     width: '90%',
-    marginTop: 20,
+    marginTop: 30,
     height: 60,
   },
 });

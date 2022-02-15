@@ -2,7 +2,7 @@ import {View, Text, TouchableWithoutFeedback, Keyboard} from 'react-native';
 import React, {useState} from 'react';
 import {NativeStackScreenProps} from '@react-navigation/native-stack';
 import {AuthStackParamList} from '../../navigations/authNavigation';
-// import * as Routes from '../../utils/Routes';
+import * as Routes from '../../utils/Routes';
 import LinearGradient from 'react-native-linear-gradient';
 import {styles} from './styles';
 import {Colors} from '../../styles';
@@ -52,7 +52,7 @@ const OtpScreen = ({navigation}: OtpScreenProps) => {
               backgroundColor={Colors.WhiteColor}
               isDisabled={false}
               onPressed={() => {
-                console.log(name);
+                navigation.navigate(Routes.NewPasswordScreen);
               }}
             />
           </View>
