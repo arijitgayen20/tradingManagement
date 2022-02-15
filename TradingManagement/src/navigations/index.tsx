@@ -5,9 +5,14 @@ import Screens from '../screens';
 import * as Routes from '../utils/Routes';
 import AuthNavigation from './authNavigation';
 
-const RootStack = createNativeStackNavigator();
+export type RootStackParamList = {
+  Loading: undefined;
+  Auth: undefined;
+};
 
-function RootNavigation() {
+const RootStack = createNativeStackNavigator<RootStackParamList>();
+
+const RootNavigation: React.FC = () => {
   return (
     <NavigationContainer>
       <RootStack.Navigator initialRouteName={Routes.Loading}>
@@ -29,6 +34,6 @@ function RootNavigation() {
       </RootStack.Navigator>
     </NavigationContainer>
   );
-}
+};
 
 export default RootNavigation;

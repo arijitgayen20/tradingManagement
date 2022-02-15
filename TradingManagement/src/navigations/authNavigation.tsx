@@ -3,9 +3,16 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import * as Routes from '../utils/Routes';
 import Screens from '../screens';
 
-const AuthStack = createNativeStackNavigator();
+export type AuthStackParamList = {
+  LoginScreen: undefined;
+  NewPasswordScreen: undefined;
+  OtpScreen: undefined;
+  ResetPassword: undefined;
+  SuccessScreen: undefined;
+};
+const AuthStack = createNativeStackNavigator<AuthStackParamList>();
 
-export default function AuthNavigation({}) {
+const AuthNavigation: React.FC = () => {
   return (
     <AuthStack.Navigator initialRouteName={Routes.LoginScreen}>
       <AuthStack.Screen
@@ -30,4 +37,6 @@ export default function AuthNavigation({}) {
       />
     </AuthStack.Navigator>
   );
-}
+};
+
+export default AuthNavigation;
