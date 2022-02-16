@@ -31,7 +31,7 @@ const styles = StyleSheet.create({
   headerContainer: {
     width: '100%',
     height: 60,
-    marginTop: Platform.OS === 'android' ? StatusBar.currentHeight : 35,
+    marginTop: Platform.OS === 'android' ? 0 : 35,
     backgroundColor: Colors.linear1,
     flexDirection: 'row',
     alignItems: 'center',
