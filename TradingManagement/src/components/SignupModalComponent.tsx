@@ -1,9 +1,9 @@
-import {View, StyleSheet, ScrollView, Text} from 'react-native';
-import React, {useState} from 'react';
+import {View, StyleSheet, ScrollView, Text, Pressable} from 'react-native';
+import React, {useEffect, useState} from 'react';
 import Modal from 'react-native-modal';
 
 // Components
-import {AnimatedInput} from '.';
+import {AnimatedInput, ButtonComponent} from '.';
 
 // Styles
 import {Colors, Fonts} from '../styles';
@@ -14,9 +14,11 @@ import ProfileIcon from '../assets/icons/ic_profile.svg';
 import EmailIcon from '../assets/icons/ic_email.svg';
 import PhoneIcon from '../assets/icons/ic_phone.svg';
 import SecurePasswordComponent from './SecurePasswordComponent';
+import RightArrowIcon from '../assets/icons/ic_right_arrow.svg';
 
 interface SignupModalProps {
     isVisible: boolean;
+    onClose: () => void;
 }
 
 const SignupModal: React.FC<SignupModalProps> = props => {
@@ -24,6 +26,18 @@ const SignupModal: React.FC<SignupModalProps> = props => {
     const [email, setEmail] = useState<string>('');
     const [phone, setPhone] = useState<string>('');
     const [newPassword, setNewPassword] = useState<string>('');
+    const [confirmPassword, setConfirmPassword] = useState<string>('');
+    const [matched, setMatched] = useState<boolean>(false);
+
+    useEffect(() => {
+        if (
+            newPassword !== '' &&
+            confirmPassword !== '' &&
+            newPassword === confirmPassword
+        ) {
+            setMatched(true);
+        }
+    }, [newPassword, confirmPassword]);
 
     return (
         <Modal isVisible={props.isVisible} style={styles.modalView}>
@@ -31,14 +45,18 @@ const SignupModal: React.FC<SignupModalProps> = props => {
                 <ScrollView style={LoginStyles.screen}>
                     <View style={styles.modalContentsView}>
                         <View style={styles.headerContainer}>
-                            <CloseIcon
-                                fill={Colors.DarkBlueColor}
-                                fillSecondary={Colors.MediumGrayColor}
-                            />
-                            <View style={styles.loginContainer}>
+                            <Pressable onPress={props.onClose}>
+                                <CloseIcon
+                                    fill={Colors.DarkBlueColor}
+                                    fillSecondary={Colors.MediumGrayColor}
+                                />
+                            </Pressable>
+                            <Pressable
+                                style={styles.loginContainer}
+                                onPress={props.onClose}>
                                 <Text style={styles.headerText}>Login</Text>
                                 <RightAngleIcon />
-                            </View>
+                            </Pressable>
                         </View>
                         <View style={styles.contains}>
                             <Text style={styles.mainText}>
@@ -91,20 +109,6 @@ const SignupModal: React.FC<SignupModalProps> = props => {
                             />
                         </View>
                         <View style={styles.inputContainer}>
-                            <AnimatedInput
-                                value={phone}
-                                placeholder={'Phone Number'}
-                                multiline={false}
-                                keyType={'number-pad'}
-                                onChange={text => setPhone(text)}
-                                showIcon={true}
-                                icon={<PhoneIcon />}
-                                textColor={Colors.LightGrayColor}
-                                borderColor={Colors.LightGrayColor}
-                                userInputColor={Colors.BlackColor}
-                            />
-                        </View>
-                        {/* <View style={styles.inputContainer}>
                             <SecurePasswordComponent
                                 value={newPassword}
                                 onChangeText={text => setNewPassword(text)}
@@ -112,8 +116,36 @@ const SignupModal: React.FC<SignupModalProps> = props => {
                                 textColor={Colors.LightGrayColor}
                                 borderColor={Colors.LightGrayColor}
                                 userInputColor={Colors.BlackColor}
+                                iconColor={Colors.BlueTextColor}
+                                icon2Color={Colors.GreenColor}
+                                isMatch={matched}
                             />
-                        </View> */}
+                        </View>
+                        <View style={styles.inputContainer}>
+                            <SecurePasswordComponent
+                                value={confirmPassword}
+                                onChangeText={text => setConfirmPassword(text)}
+                                placeholderText={'Confirm Password'}
+                                textColor={Colors.LightGrayColor}
+                                borderColor={Colors.LightGrayColor}
+                                userInputColor={Colors.BlackColor}
+                                iconColor={Colors.BlueTextColor}
+                                icon2Color={Colors.GreenColor}
+                                isMatch={matched}
+                            />
+                        </View>
+                        <View style={LoginStyles.buttonContainer}>
+                            <ButtonComponent
+                                backgroundColor={Colors.BlueTextColor}
+                                textColor={Colors.WhiteColor}
+                                isDisabled={false}
+                                title={'Login Now'}
+                                onPressed={() => {
+                                    console.log('pressed');
+                                }}
+                                icon={<RightArrowIcon />}
+                            />
+                        </View>
                     </View>
                 </ScrollView>
             </View>

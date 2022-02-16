@@ -6,12 +6,15 @@ import LinearGradient from 'react-native-linear-gradient';
 // Component
 import {AuthStackParamList} from '../../navigations/authNavigation';
 import * as Routes from '../../utils/Routes';
-import {HeaderComponent, ButtonComponent} from '../../components';
+import {
+    HeaderComponent,
+    ButtonComponent,
+    SecurePasswordComponent,
+} from '../../components';
 
 // Styles
 import {LoginStyles, styles} from './styles';
 import {Colors} from '../../styles';
-import SecurePasswordComponent from '../../components/SecurePasswordComponent';
 
 type NewPasswordProps = NativeStackScreenProps<
     AuthStackParamList,
@@ -54,6 +57,7 @@ const NewPasswordScreen = ({navigation}: NewPasswordProps) => {
                         onChangeText={text => setNewPassword(text)}
                         placeholderText={'Password'}
                         textColor={Colors.WhiteColor}
+                        iconColor={Colors.WhiteColor}
                     />
                 </View>
                 <View style={styles.inputView}>
@@ -63,6 +67,8 @@ const NewPasswordScreen = ({navigation}: NewPasswordProps) => {
                         placeholderText={'Confirm Password'}
                         textColor={Colors.WhiteColor}
                         isMatch={matched}
+                        iconColor={Colors.WhiteColor}
+                        icon2Color={Colors.WhiteColor}
                     />
                 </View>
                 <View style={styles.buttonView}>
