@@ -109,20 +109,6 @@ const SignupModal: React.FC<SignupModalProps> = props => {
                             />
                         </View>
                         <View style={styles.inputContainer}>
-                            <AnimatedInput
-                                value={phone}
-                                placeholder={'Phone Number'}
-                                multiline={false}
-                                keyType={'number-pad'}
-                                onChange={text => setPhone(text)}
-                                showIcon={true}
-                                icon={<PhoneIcon />}
-                                textColor={Colors.LightGrayColor}
-                                borderColor={Colors.LightGrayColor}
-                                userInputColor={Colors.BlackColor}
-                            />
-                        </View>
-                        <View style={styles.inputContainer}>
                             <SecurePasswordComponent
                                 value={newPassword}
                                 onChangeText={text => setNewPassword(text)}
