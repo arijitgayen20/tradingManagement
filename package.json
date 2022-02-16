@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "react-native-keyboard-avoiding-scroll-view": "^1.0.1"
+  }
+}
