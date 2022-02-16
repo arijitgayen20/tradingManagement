@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import {
     View,
     Text,
@@ -32,12 +32,6 @@ const LoginScreen = ({navigation}: LoginProps) => {
     const [toggleModal, setToggleModal] = useState<boolean>(false);
 
     const dimensions = Dimensions.get('screen');
-
-    // useEffect(() => {
-    //     if (toggleModal) {
-    //         return <SignupModal isVisible={toggleModal} />;
-    //     }
-    // }, [toggleModal]);
 
     return (
         <LinearGradient
@@ -124,7 +118,12 @@ const LoginScreen = ({navigation}: LoginProps) => {
                             </Text>
                         </Text>
                     </View>
-                    {toggleModal && <SignupModal isVisible={toggleModal} />}
+                    {toggleModal && (
+                        <SignupModal
+                            isVisible={toggleModal}
+                            onClose={() => setToggleModal(false)}
+                        />
+                    )}
                 </KeyboardAvoidingView>
             </ScrollView>
         </LinearGradient>

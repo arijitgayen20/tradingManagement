@@ -10,6 +10,7 @@ export const MediumGrayColor = '#D9D9D9';
 export const BlueTextColor = '#01B6F7';
 export const GrayTextColor = '#787E8A';
 export const LightGrayColor = '#8E95A3';
+export const GreenColor = '#36BE20';
 
 export const linear1 = '#04BEFF';
 export const linear2 = '#07588E';

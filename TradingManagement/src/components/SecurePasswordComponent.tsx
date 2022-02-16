@@ -16,6 +16,9 @@ interface SecurePasswordProps {
     textColor: string;
     isMatch?: boolean;
     borderColor?: string;
+    userInputColor?: string;
+    iconColor: string;
+    icon2Color?: string;
 }
 
 const SecurePasswordComponent: React.FC<SecurePasswordProps> = props => {
@@ -31,15 +34,17 @@ const SecurePasswordComponent: React.FC<SecurePasswordProps> = props => {
             textColor={props.textColor}
             keyType={'default'}
             secureTextEntry={!showPassword ? true : false}
-            icon2={props.isMatch && <TickIcon />}
+            icon2={props.isMatch && <TickIcon fill={props.icon2Color} />}
             icon={
                 showPassword ? (
-                    <PasswordVisibleIcon />
+                    <PasswordVisibleIcon fill={props.iconColor} />
                 ) : (
-                    <PasswordNotVisibleIcon />
+                    <PasswordNotVisibleIcon fill={props.iconColor} />
                 )
             }
             onPressIcon={() => setShowPassword(!showPassword)}
+            userInputColor={props.userInputColor}
+            borderColor={props.borderColor}
         />
     );
 };
